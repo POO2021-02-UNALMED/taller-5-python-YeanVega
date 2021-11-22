@@ -1,42 +1,37 @@
 ﻿from zooAnimales.animal import Animal
-
 class Anfibio(Animal):
-    def __init__(self, nombre, edad, habitat, genero, colorPiel, venenoso):
+    listado = []
+    ranas = 0
+    salamandras = 0
+    def __init__(self,nombre,edad,habitat,genero,colorPiel,venenoso):
         self.nombre = nombre
         self.edad = edad
         self.habitat = habitat
         self.genero = genero
-        self.__colorPiel = colorPiel
-        self.__venenoso = venenoso
-        __listado.append(self)
-
-    def setColorPiel(self, colorPiel):
-        self.__colorPiel = colorPiel
-
+        self.colorPiel = colorPiel
+        self.venenoso = venenoso
+        Anfibio.listado.append(self)
+    
     def getColorPiel(self):
-        return self.__colorPiel
-
-    def setVenenoso(self, venenoso):
-        self.__venenoso = venenoso
-
+        return self.colorPiel
+    
     def isVenenoso(self):
-        return self.__venenoso
-
+        return self.venenoso
+    
     def movimiento(self):
-        return "saltar"
-
-    @staticmethod
-    def cantidadAnfibios():
-        return len(__listado)
-
-    @staticmethod
-    def crearRana(nombre, edad, genero):
-        ranas += 1
-        rana = Anfibio(nombre, edad, "selva", genero, "rojo", True)
-        return rana
-
-    @staticmethod
-    def crearSalamandra(nombre, edad, genero):
-        salamandras += 1
-        salamandra = Anfibio(nombre, edad, "selva", genero, "negro y amarillo", False)
-        return salamandra
+        pass
+    
+    @classmethod
+    def cantidadAnfibios(cls):
+        lista = cls.listado
+        return len(lista)
+    
+    @classmethod
+    def crearRana(cls,nombre,edad,genero):
+        cls.ranas = cls.ranas +1
+        return Anfibio(nombre, edad,"selva",genero,"rojo",True)
+    
+    @classmethod
+    def crearSalamandra(cls,nombre,edad,genero):
+        cls.salamandras = cls.salamandras +1
+        return Anfibio(nombre,edad,"selva",genero,"negro y amarillo", False)

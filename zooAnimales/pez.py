@@ -1,43 +1,37 @@
 ﻿from zooAnimales.animal import Animal
-
 class Pez(Animal):
-
-    def __init__(self, nombre, edad, habitat, genero, colorEscamas, cantidadAletas):
+    listado = []
+    salmones = 0
+    bacalaos = 0
+    def __init__(self,nombre,edad,habitat,genero,colorEscamas,cantidadAletas):
         self.nombre = nombre
         self.edad = edad
         self.habitat = habitat
         self.genero = genero
-        self.__colorEscamas = colorEscamas
-        self.__cantidadAletas = cantidadAletas
-        __listado.append(self)
-
-    def setColorEscamas(self, colorEscamas):
-        self.__colorEscamas = colorEscamas
+        self.colorEscamas = colorEscamas
+        self.cantidadAletas = cantidadAletas
+        Pez.listado.append(self)
 
     def getColorEscamas(self):
-        return self.__colorEscamas
-
-    def setCantidadAleas(self, cantidadAletas):
-        self.__cantidadAletas = cantidadAletas
+        return self.colorEscamas
 
     def getCantidadAletas(self):
-        return self.__cantidadAletas
+        return self.cantidadAletas
 
     def movimiento(self):
-        return "nadar"
+        pass
 
-    @staticmethod
-    def cantidadPeces():
-        return len(__listado)
+    @classmethod
+    def cantidadPeces(cls):
+        lista = cls.listado
+        return len(lista)
 
-    @staticmethod
-    def crearSalmon(nombre, edad, genero):
-        salmones += 1
-        salmon = Pez(nombre, edad, "oceano", genero, "rojo", 6)
-        return salmon
-
-    @staticmethod
-    def crearBacalao(nombre, edad, genero):
-        bacalaos += 1
-        bacalao = Pez(nombre, edad, "oceano", genero, "gris", 6)
-        return bacalao
+    @classmethod
+    def crearSalmon(cls,nombreSalmon,edadSalmon,generoSalmon):
+        cls.salmones = cls.salmones + 1
+        return Pez(nombreSalmon,edadSalmon,"oceano",generoSalmon,"rojo",6)
+        
+    @classmethod
+    def crearBacalao(cls,nombreBacalao,edadBacalao,generoBacalao):
+        cls.bacalaos = cls.bacalaos +1
+        return Pez(nombreBacalao,edadBacalao,"oceano",generoBacalao,"gris",6)

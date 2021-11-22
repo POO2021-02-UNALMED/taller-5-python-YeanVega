@@ -1,35 +1,38 @@
 ﻿from zooAnimales.animal import Animal
-
 class Ave(Animal):
-    def __init__(self, nombre, edad, habitat, genero, colorPlumas):
+    listado = []
+    halcones = 0
+    aguilas = 0
+
+    def __init__(self,nombre,edad,habitat,genero,colorPlumas):
         self.nombre = nombre
         self.edad = edad
         self.habitat = habitat
         self.genero = genero
-        self.__colorPlumas = colorPlumas
-        __listado.append(self)
-
-    def setColorPlumas(self, colorPlumas):
-        self.__colorPlumas = colorPlumas
-
+        self.colorPlumas = colorPlumas
+        Ave.listado.append(self)
+    
     def getColorPlumas(self):
-        return self.__colorPlumas
+        return self.colorPlumas
 
     def movimiento(self):
-        return "volar"
+        pass
 
-    @staticmethod
-    def cantidadAves():
-        return len(__listado)
+    @classmethod
+    def cantidadAves(cls):
+        lista = cls.listado
+        return len(lista)
 
-    @staticmethod
-    def crearHalcon(nombre, edad, genero):
-        halcones += 1
-        halcon = Ave(nombre, edad, "montanas", genero, "cafe glorioso")
-        return halcon
+    @classmethod
+    def crearHalcon(cls,nombre,edad, genero):
+        cls.halcones = cls.halcones + 1
+        return Ave(nombre,edad,"montanas",genero,"cafe glorioso")
 
-    @staticmethod
-    def crearAguila(nombre, edad, genero):
-        aguilas += 1
-        aguila = Ave(nombre, edad, "montanas", genero, "blanco y amarillo")
-        return aguila
+    @classmethod
+    def crearAguila(cls,nombre,edad,genero):
+        cls.aguilas = cls.aguilas +1
+        return Ave(nombre,edad,"montanas",genero,"blanco y amarillo")
+
+    def toString(self):
+        return "Mi nombre es " + str(self.nombre) + ", tengo una edad de " + str(self.edad) + ", habito en "+ str(self.habitat) + " y mi genero es " + str(self.genero)
+    

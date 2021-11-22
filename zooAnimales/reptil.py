@@ -1,44 +1,39 @@
 ﻿from zooAnimales.animal import Animal
 
 class Reptil(Animal):
-
-    def __init__(self, nombre, edad, habitat, genero, colorEscamas, largoCola):
+    listado = []
+    iguanas = 0
+    serpientes = 0
+    def __init__(self,nombre,edad,habitat,genero,colorEscamas,largoCola):
         self.nombre = nombre
         self.edad = edad
         self.habitat = habitat
         self.genero = genero
-        self.__colorEscamas = colorEscamas
-        self.__largoCola = largoCola
-        __listado.append(self)
-
-
-    def setColorEscamas(self, colorEscamas):
-        self.__colorEscamas = colorEscamas
+        self.colorEscamas = colorEscamas
+        self.largoCola = largoCola
+        Reptil.listado.append(self)
 
     def getColorEscamas(self):
-        return self.__colorEscamas
-
-    def setLargoCola(self, largoCola):
-        self.__largoCola = largoCola
+        return self.colorEscamas
 
     def getLargoCola(self):
-        return self.__largoCola
+        return self.largoCola
 
     def movimiento(self):
-        return "reptar"
+        pass
 
-    @staticmethod
-    def cantidadReptiles():
-        return len(__listado)
+    @classmethod
+    def cantidadReptiles(cls):
+        lista = cls.listado
+        return len(lista)
 
-    @staticmethod
-    def crearIguana(nombre, edad, genero):
-        iguanas += 1
-        iguana = Reptil(nombre, edad, "humedal", genero, "verde", 3)
-        return iguana
-
-    @staticmethod
-    def crearSerpiente(nombre, edad, genero):
-        serpientes += 1
-        serpiente = Reptil(nombre, edad, "jungla", genero, "blanco", 1)
-        return serpiente
+    @classmethod
+    def crearIguana(cls,nombreIguana,edadIguana,generoIguana):
+        cls.iguanas = cls.iguanas +1
+        return Reptil(nombreIguana,edadIguana,"humedal",generoIguana,"verde",3)
+        
+    @classmethod
+    def crearSerpiente(cls,nombreSerpiente,edadSerpiente,generoSerpiente):
+        cls.serpientes = cls.serpientes + 1
+        return Reptil(nombreSerpiente,edadSerpiente,"jungla",generoSerpiente,"blanco",1)
+    
