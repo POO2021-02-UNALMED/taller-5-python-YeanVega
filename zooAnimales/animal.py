@@ -5,6 +5,11 @@
         self.habitat = habitat
         self.genero = genero
         self.zona = None
+        from zooAnimales.anfibio import Anfibio
+        from zooAnimales.ave import Ave
+        from zooAnimales.mamifero import Mamifero
+        from zooAnimales.pez import Pez
+        from zooAnimales.reptil import Reptil
         self.totalAnimales = Mamifero.cantidadMamiferos() + Ave.cantidadAves() + Reptil.cantidadReptiles() + Pez.cantidadPeces() + Anfibio.cantidadAnfibios()
     
     def getNombre(self):
