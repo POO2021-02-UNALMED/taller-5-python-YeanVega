@@ -1,4 +1,4 @@
-﻿class Zoologico(object):
+﻿class Zoologico:
   
     def __init__(self, nombre, ubicacion):
         self.__nombre = nombre

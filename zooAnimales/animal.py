@@ -1,6 +1,6 @@
 ﻿from gestion.zona import Zona
 
-class Animal(object):
+class Animal:
     __totalAnimales = 0
     def __init__(self, nombre, edad, habitat, genero):
         self.nombre = nombre
