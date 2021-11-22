@@ -1,4 +1,6 @@
-﻿class Pez(Animal):
+﻿from zooAnimales.animal import Animal
+
+class Pez(Animal):
 
     def __init__(self, nombre, edad, habitat, genero, colorEscamas, cantidadAletas):
         self.nombre = nombre

@@ -1,36 +1,27 @@
-﻿class Zoologico:
-  
-    def __init__(self, nombre, ubicacion):
-        self.__nombre = nombre
-        self.__ubicacion = ubicacion
-
-    def agregarZonas(self, zona):
-        self.__zonas.append(zona)
-
-    def cantidadTotalAnimales(self):
-        cantidad = 0
-        i = 0
-        while i < len(self.__zonas):
-            cantidad += len(self.__zonas[i].animales)
-            i += 1
-        return cantidad
+﻿
+class Zoologico:
+    def __init__(self,nombre,ubicacion):
+        self.nombre = nombre
+        self.ubicacion = ubicacion
+        self.zonas = []
 
     def getNombre(self):
-        return self.__nombre
-
-    def setNombre(self, nombre):
-        self.__nombre = nombre
+        return self.nombre
 
     def getUbicacion(self):
-        return self.__ubicacion
+        return self.ubicacion
 
-    def setUbicacion(self, ubicacion):
-        self.__ubicacion = ubicacion
+    def agregarZonas(self,zona):
+        self.zonas.append(zona)
 
-    def getZonas(self):
-        return self.__zonas
+    def getZona(self):
+        return self.zonas 
 
-    def setZonas(self, zonas):
-        self.__zonas = zonas
+
+    def cantidadTotalAnimales(self):
+        Suma = 0
+        for i in range(0,len(self.zonas)):
+            Suma = Suma + self.zonas[i].cantidadAnimales()
+        return Suma
 
 

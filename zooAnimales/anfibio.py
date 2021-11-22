@@ -1,5 +1,6 @@
-﻿class Anfibio(Animal):
+﻿from zooAnimales.animal import Animal
 
+class Anfibio(Animal):
     def __init__(self, nombre, edad, habitat, genero, colorPiel, venenoso):
         self.nombre = nombre
         self.edad = edad
